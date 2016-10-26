@@ -13,7 +13,7 @@ To help manage development environment configurations on Linux, macOS, and Windo
 - [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
 
-[vim]: http://www.vim.org
+[gvim]: http://www.vim.org
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [Chrome]: https://www.google.com/chrome/browser/desktop/index.html
 
