@@ -1,0 +1,31 @@
+[user]
+    name = Bryan Eargle
+    email = bryan.eargle@gmail.com
+[core]
+    editor = gvim
+    excludesfile = ~/.gitignore
+    autocrlf = true
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+    tool = gvimdiff
+    guitool = gvimdiff
+    compactionHeuristic = true
+[difftool "gvimdiff"]
+    cmd = gvim -d $LOCAL $REMOTE
+[difftool]
+    prompt = false
+[interactive]
+    diffFilter = diff-so-fancy
+[log]
+    date = iso-strict-local
+[merge]
+    tool = gvimdiff
+[mergetool "gvimdiff"]
+    cmd = gvim -d $LOCAL $MERGED $REMOTE
+[web]
+    browser = chrome
+[color]
+    ui = always
+[svn]
+    # push empty directory removals back to svn as directory deletes
+    rmdir = true
