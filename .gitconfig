@@ -1,6 +1,5 @@
 [user]
-    name = Bryan Eargle
-    email = bryan.eargle@gmail.com
+    useConfigOnly = true
 [core]
     editor = gvim
     excludesfile = ~/.gitignore
