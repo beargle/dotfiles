@@ -33,6 +33,12 @@ set expandtab
 " show line numbers
 set number
 
+" set colorscheme
+colorscheme solarized
+
+" allow toggle of solarized background type
+call togglebg#map("<F5>")
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
