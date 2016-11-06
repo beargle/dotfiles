@@ -20,14 +20,10 @@ endif
 " Get the defaults that most users want.
 source ~/.vim/defaults.vim
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
+" do not keep backup or swap file
+set nobackup
+set nowritebackup
+set noswapfile
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
