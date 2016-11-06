@@ -25,6 +25,11 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" set tabs to 4 spaces
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
