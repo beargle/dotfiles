@@ -30,6 +30,9 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" show line numbers
+set number
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
