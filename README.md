@@ -13,7 +13,6 @@ To help manage development environment configurations on Linux, macOS, and Windo
 - [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
 
-[gvim]: http://www.vim.org
 [diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [Chrome]: https://www.google.com/chrome/browser/desktop/index.html
 
@@ -29,6 +28,8 @@ Common build, debug, and temporary files from [Visual Studio] projects or Window
 - Set [solarized] colorscheme with light/dark background toggle
 - Insert spaces (4) instead of tabs
 - Show line numbers
+- Consolas font in [gvim]
 
+[gvim]: http://www.vim.org
 [pathogen]: https://github.com/tpope/vim-pathogen
 [solarized]: https://github.com/altercation/vim-colors-solarized

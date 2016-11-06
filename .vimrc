@@ -45,6 +45,11 @@ colorscheme solarized
 " allow toggle of solarized background type
 call togglebg#map("<F5>")
 
+" set GUI font
+if has('gui_running')
+    set guifont=Consolas:h9
+endif
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
