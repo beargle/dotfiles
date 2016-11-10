@@ -45,6 +45,9 @@ colorscheme solarized
 " allow toggle of solarized background type
 call togglebg#map("<F5>")
 
+" set airline status line theme
+let g:airline_theme='solarized'
+
 " set GUI font
 if has('gui_running')
     set guifont=Consolas:h9
