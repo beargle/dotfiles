@@ -4,13 +4,16 @@ install:
 build_script:
 - ps: >-
     # stage files in 'latest' folder for zip artifact creation
+
     git checkout-index -q -a --prefix="latest/"
 
     # also stage files from submodules
+
     git submodule foreach 'git checkout-index -q -a --prefix="$toplevel/latest/$path/"'
 test_script:
 - ps: >-
     # check existence of path for zip artifact creation
+
     $ArchivePath = "$($env:APPVEYOR_BUILD_FOLDER)\latest";
 
     If (Test-Path -Path $($ArchivePath) -PathType Container)
