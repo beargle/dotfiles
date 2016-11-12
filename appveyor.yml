@@ -13,7 +13,7 @@ test_script:
     # check existence of path for zip artifact creation
     $ArchivePath = "$($env:APPVEYOR_BUILD_FOLDER)\latest";
 
-    If (Test-Path -Path $ArchivePath -PathType Container)
+    If (Test-Path -Path $($ArchivePath) -PathType Container)
     {
         Write-Host "Found $($ArchivePath) for artifact creation.";
     }
