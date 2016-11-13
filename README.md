@@ -8,12 +8,12 @@ To help manage development environment configurations on Linux, macOS, and Windo
 
 - Set `useConfigOnly` to true in support of multiple identity management
 - Set [gvim] as default editor and difftool
-- [diff-so-fancy] for colorized, highlighted diffs in stdout or interactive
+- [diff-highlight] for colorized, highlighted diffs
 - Checkout `cr/lf`, commit `lf` for Windows compatibility
 - [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
 
-[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
+[diff-highlight]: https://github.com/git/git/tree/master/contrib/diff-highlight
 [Chrome]: https://www.google.com/chrome/browser/desktop/index.html
 
 ### .gitignore
