@@ -4,7 +4,7 @@
     editor = gvim
     excludesfile = ~/.gitignore
     autocrlf = true
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-highlight | less -r
 [diff]
     tool = gvimdiff
     guitool = gvimdiff
@@ -13,8 +13,6 @@
     cmd = gvim -d $LOCAL $REMOTE
 [difftool]
     prompt = false
-[interactive]
-    diffFilter = diff-so-fancy
 [log]
     date = iso-strict-local
 [merge]

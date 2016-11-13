@@ -8,27 +8,40 @@ To help manage development environment configurations on Linux, macOS, and Windo
 
 - Set `useConfigOnly` to true in support of multiple identity management
 - Set [gvim] as default editor and difftool
-- [diff-so-fancy] for colorized, highlighted diffs in stdout or interactive
+- [diff-highlight] for colorized, highlighted diffs
 - Checkout `cr/lf`, commit `lf` for Windows compatibility
 - [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
 
-[gvim]: http://www.vim.org
-[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
-[Chrome]: https://www.google.com/chrome/browser/desktop/index.html
 
 ### .gitignore
 
-Common build, debug, and temporary files from [Visual Studio] projects or Windows system files.
+Common [build, debug, and temporary files] from Visual Studio projects or Windows system files.
 
-[Visual Studio]: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 ## Vim
 
 - Load [pathogen] plugin manager
-- Set [solarized] colorscheme with light/dark background toggle
 - Insert spaces (4) instead of tabs
 - Show line numbers
+- Consolas font in [gvim]
 
+### Plugins
+
+- Common defaults with [vim-sensible]
+- Add contextual statusline info with [vim-airline]
+- Set [solarized] colorscheme in statusline with [vim-airline-themes]
+- Set [solarized] colorscheme for files (with light/dark background toggle) with [vim-colors-solarized]
+- PowerShell syntax coloring, indenting, and folding with [vim-ps1]
+
+[gvim]: http://www.vim.org
+[diff-highlight]: https://github.com/git/git/tree/master/contrib/diff-highlight
+[build, debug, and temporary files]: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 [pathogen]: https://github.com/tpope/vim-pathogen
-[solarized]: https://github.com/altercation/vim-colors-solarized
+[Chrome]: https://www.google.com/chrome/browser/desktop/index.html
+[vim-sensible]: https://github.com/tpope/vim-sensible
+[vim-airline]: https://github.com/vim-airline/vim-airline
+[solarized]: http://ethanschoonover.com/solarized
+[vim-airline-themes]: https://github.com/vim-airline/vim-airline-themes
+[vim-colors-solarized]: https://github.com/altercation/vim-colors-solarized
+[vim-ps1]: https://github.com/PProvost/vim-ps1
