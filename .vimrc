@@ -41,7 +41,7 @@ set number
 
 " show hidden characters
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>-,trail:-,precedes:<,extends:>
 
 " set colorscheme
 colorscheme solarized
