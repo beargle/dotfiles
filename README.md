@@ -24,6 +24,8 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 - Load [pathogen] plugin manager
 - Insert spaces (4) instead of tabs
 - Show line numbers
+- Visible tabs (`>---`) and trailing spaces (`-`)
+- Show text exists to left (`<`) and right (`>`) of screen when word wrap off
 - Consolas font in [gvim]
 
 ### Plugins
