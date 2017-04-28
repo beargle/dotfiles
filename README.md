@@ -12,6 +12,7 @@ To help manage development environment configurations on Linux, macOS, and Windo
 - Checkout `cr/lf`, commit `lf` for Windows compatibility
 - [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
+- Only allow [fast-forward merge] by default, override if needed with `merge --no-ff`
 
 
 ### .gitignore
@@ -47,3 +48,4 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 [vim-airline-themes]: https://github.com/vim-airline/vim-airline-themes
 [vim-colors-solarized]: https://github.com/altercation/vim-colors-solarized
 [vim-ps1]: https://github.com/PProvost/vim-ps1
+[fast-forward merge]: https://git-scm.com/docs/git-config#git-config-mergeff
