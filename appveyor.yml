@@ -26,18 +26,23 @@ test_script:
     ForEach ($RequiredPath in @( "archive", "archive\bin", "archive\.vim" ))
 
     {
+
         If (Test-Path -Path $RequiredPath -PathType Container)
+
         {
 
             Write-Host "Found required '$($RequiredPath)' path for artifact creation.";
 
         }
+
         Else
+
         {
 
             Throw "Can't find required '$($RequiredPath)' path for artifact creation. $_";
 
         }
+
     }
 artifacts:
 - path: archive
