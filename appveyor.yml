@@ -1,46 +1,38 @@
 version: 1.1.{build}
 branches:
-      only:
-      - master
+  only:
+  - master
 install:
 - cmd: git submodule update -q --init
 build_script:
 - ps: >-
-    # stage files in 'latest' folder for zip artifact creation
+    # create bin directory for script(s) to modify diff output in Git Bash
 
-    git checkout-index -q -a --prefix="latest/";
-
-
-    # also stage files from submodules
-
-    git submodule foreach 'git checkout-index -q -a --prefix="$toplevel/latest/$path/"';
+    New-Item -ItemType "Directory" -Path "bin" | Out-Null;
 
 
-    # directory for script(s) to modify diff output in git bash
+    # script for colorizing diff output in Git Bash
 
-    New-Item -ItemType "Directory" -Path "latest\bin" | Out-Null;
-
-
-    # script for colorizing diff output in git bash
-
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "latest\bin\diff-highlight";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "diff-highlight";
 test_script:
 - ps: >-
-    # check existence of path for zip artifact creation
+    # check existence of required top-level directories
 
-    $ArchivePath = "$($env:APPVEYOR_BUILD_FOLDER)\latest";
-
-    If (Test-Path -Path $ArchivePath -PathType Container)
+    ForEach ($RequiredPath in @( "bin", ".vim" )
 
     {
-        Write-Host "Found $($ArchivePath) for artifact creation.";
-    }
 
-    Else
+        If (Test-Path -Path $RequiredPath -PathType Container)
 
-    {
-        Throw "Can't find $($ArchivePath) path for artifact creation. $_";
-    }
+        {
+            Write-Host "Found required '$($Path)' path for release.";
+        }
+
+        Else
+
+        {
+            Throw "Can't find required '$($Path)' path for release. $_";
+        }
 artifacts:
-- path: latest
-  name: dotfiles-latest
+- path: .
+  name: $($env:APPVEYOR_PROJECT_NAME)-$($env:APPVEYOR_BUILD_VERSION)
