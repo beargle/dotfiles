@@ -31,7 +31,7 @@ test_script:
 
         {
 
-            Write-Host "Found required '$($Path)' path for artifact creation.";
+            Write-Host "Found required '$($RequiredPath)' path for artifact creation.";
 
         }
 
@@ -39,11 +39,11 @@ test_script:
 
         {
 
-            Throw "Can't find required '$($Path)' path for artifact creation. $_";
+            Throw "Can't find required '$($RequiredPath)' path for artifact creation. $_";
 
         }
 
     }
 artifacts:
 - path: archive
-  name: $($env:APPVEYOR_PROJECT_NAME)-$($env:APPVEYOR_BUILD_VERSION)
+  name: $(appveyor_project_name)-$(appveyor_build_version)
