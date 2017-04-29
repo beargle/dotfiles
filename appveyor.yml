@@ -18,21 +18,27 @@ test_script:
 - ps: >-
     # check existence of required top-level directories
 
-    ForEach ($RequiredPath in @( "bin", ".vim" )
+    ForEach ($RequiredPath in @( "bin", ".vim" ))
 
     {
 
         If (Test-Path -Path $RequiredPath -PathType Container)
 
         {
+
             Write-Host "Found required '$($Path)' path for release.";
+
         }
 
         Else
 
         {
+
             Throw "Can't find required '$($Path)' path for release. $_";
+
         }
+
+    }
 artifacts:
 - path: .
   name: $($env:APPVEYOR_PROJECT_NAME)-$($env:APPVEYOR_BUILD_VERSION)
