@@ -18,7 +18,7 @@ build_script:
 
     # script for colorizing diff output in Git Bash
 
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "archive\diff-highlight";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "archive\bin\diff-highlight";
 test_script:
 - ps: >-
     # check existence of required directories for zip artifact creation
