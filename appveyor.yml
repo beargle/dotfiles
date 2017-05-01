@@ -1,46 +1,49 @@
-version: 1.1.{build}
+version: 1.2.{build}
 branches:
-      only:
-      - master
+  only:
+  - master
 install:
 - cmd: git submodule update -q --init
 build_script:
 - ps: >-
-    # stage files in 'latest' folder for zip artifact creation
+    # stage files (including submodules) in 'archive' directory for artifact creation
 
-    git checkout-index -q -a --prefix="latest/";
+    git checkout-index -q -a --prefix="archive/";
 
+    git submodule foreach 'git checkout-index -q -a --prefix="$toplevel/archive/$path/"';
 
-    # also stage files from submodules
+    # create bin directory for script(s) to modify diff output in Git Bash
 
-    git submodule foreach 'git checkout-index -q -a --prefix="$toplevel/latest/$path/"';
+    New-Item -ItemType "Directory" -Path "archive\bin" | Out-Null;
 
+    # script for colorizing diff output in Git Bash
 
-    # directory for script(s) to modify diff output in git bash
-
-    New-Item -ItemType "Directory" -Path "latest\bin" | Out-Null;
-
-
-    # script for colorizing diff output in git bash
-
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "latest\bin\diff-highlight";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "archive\bin\diff-highlight";
 test_script:
 - ps: >-
-    # check existence of path for zip artifact creation
+    # check existence of required directories for zip artifact creation
 
-    $ArchivePath = "$($env:APPVEYOR_BUILD_FOLDER)\latest";
-
-    If (Test-Path -Path $ArchivePath -PathType Container)
+    ForEach ($RequiredPath in @( "archive", "archive\bin", "archive\.vim" ))
 
     {
-        Write-Host "Found $($ArchivePath) for artifact creation.";
-    }
 
-    Else
+        If (Test-Path -Path $RequiredPath -PathType Container)
 
-    {
-        Throw "Can't find $($ArchivePath) path for artifact creation. $_";
+        {
+
+            Write-Host "Found required '$($RequiredPath)' path for artifact creation.";
+
+        }
+
+        Else
+
+        {
+
+            Throw "Can't find required '$($RequiredPath)' path for artifact creation. $_";
+
+        }
+
     }
 artifacts:
-- path: latest
-  name: dotfiles-latest
+- path: archive
+  name: $(appveyor_project_name)-$(appveyor_build_version)
