@@ -26,7 +26,7 @@
 [web]
     browser = chrome
 [color]
-    ui = always
+    ui = auto
 [svn]
     # push empty directory removals back to svn as directory deletes
     rmdir = true
