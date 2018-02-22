@@ -10,7 +10,6 @@ To help manage development environment configurations on Linux, macOS, and Windo
 - Set [gvim] as default editor and difftool
 - [diff-highlight] for colorized, highlighted diffs
 - Checkout `cr/lf`, commit `lf` for Windows compatibility
-- [Chrome] as default browser
 - Push empty directory as delete for `git svn` integration
 - Only allow [fast-forward merge] by default, override if needed with `merge --no-ff`
 
@@ -41,7 +40,6 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 [diff-highlight]: https://github.com/git/git/tree/master/contrib/diff-highlight
 [build, debug, and temporary files]: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 [pathogen]: https://github.com/tpope/vim-pathogen
-[Chrome]: https://www.google.com/chrome/browser/desktop/index.html
 [vim-sensible]: https://github.com/tpope/vim-sensible
 [vim-airline]: https://github.com/vim-airline/vim-airline
 [solarized]: http://ethanschoonover.com/solarized

@@ -23,8 +23,6 @@
     tool = gvimdiff
 [mergetool "gvimdiff"]
     cmd = gvim -d $LOCAL $MERGED $REMOTE
-[web]
-    browser = chrome
 [color]
     ui = auto
 [svn]
