@@ -35,6 +35,7 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 - Set [solarized] colorscheme in statusline with [vim-airline-themes]
 - Set [solarized] colorscheme for files (with light/dark background toggle) with [vim-colors-solarized]
 - PowerShell syntax coloring, indenting, and folding with [vim-ps1]
+- Git wrapper with [vim-fugitive]
 
 [gvim]: http://www.vim.org
 [diff-highlight]: https://github.com/git/git/tree/master/contrib/diff-highlight
@@ -47,3 +48,4 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 [vim-colors-solarized]: https://github.com/altercation/vim-colors-solarized
 [vim-ps1]: https://github.com/PProvost/vim-ps1
 [fast-forward merge]: https://git-scm.com/docs/git-config#git-config-mergeff
+[vim-fugitive]: https://github.com/tpope/vim-fugitive
