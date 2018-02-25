@@ -4,7 +4,7 @@
     editor = gvim
     excludesfile = ~/.gitignore
     autocrlf = true
-    pager = diff-highlight | less -r
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [diff]
     tool = gvimdiff
     guitool = gvimdiff
