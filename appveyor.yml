@@ -1,4 +1,4 @@
-version: 1.3.{build}
+version: 1.4.{build}
 branches:
   only:
   - master
@@ -18,7 +18,7 @@ build_script:
 
     # script for colorizing diff output in Git Bash
 
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/git/git/master/contrib/diff-highlight/diff-highlight" -OutFile "archive\bin\diff-highlight";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy" -OutFile "archive\bin\diff-so-fancy";
 test_script:
 - ps: >-
     # check existence of required directories for zip artifact creation

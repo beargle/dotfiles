@@ -8,7 +8,7 @@ To help manage development environment configurations on Linux, macOS, and Windo
 
 - Set `useConfigOnly` to true in support of multiple identity management
 - Set [gvim] as default editor and difftool
-- [diff-highlight] for colorized, highlighted diffs
+- [diff-so-fancy] for colorized, highlighted, readable diffs
 - Checkout `cr/lf`, commit `lf` for Windows compatibility
 - Push empty directory as delete for `git svn` integration
 - Only allow [fast-forward merge] by default, override if needed with `merge --no-ff`
@@ -38,7 +38,7 @@ Common [build, debug, and temporary files] from Visual Studio projects or Window
 - Git wrapper with [vim-fugitive]
 
 [gvim]: http://www.vim.org
-[diff-highlight]: https://github.com/git/git/tree/master/contrib/diff-highlight
+[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
 [build, debug, and temporary files]: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 [pathogen]: https://github.com/tpope/vim-pathogen
 [vim-sensible]: https://github.com/tpope/vim-sensible
