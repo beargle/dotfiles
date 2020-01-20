@@ -17,7 +17,7 @@ build_script:
 
     # script for colorizing diff output in Git Bash
 
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/v${env:DIFF_SO_FANCY_VERSION}/diff-so-fancy" -OutFile "archive\bin\diff-so-fancy";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/v${env:DIFF_SO_FANCY_VERSION}/third_party/build_fatpack/diff-so-fancy" -OutFile "archive\bin\diff-so-fancy";
 test_script:
 - ps: >-
     # check existence of required directories for zip artifact creation
@@ -59,6 +59,24 @@ test_script:
     {
 
         Throw "Can't find required diff-so-fancy version $($env:DIFF_SO_FANCY_VERSION). $_";
+
+    }
+
+    # check existence of required diff-so-fancy script fatpack version (which includes required DiffHighlight module)
+
+    If (Select-String -Path "archive\bin\diff-so-fancy" -Pattern "'FATPACK'")
+
+    {
+
+        Write-Host "Found required diff-so-fancy packed with 'DiffHighlight' module.";
+
+    }
+
+    Else
+
+    {
+
+        Throw "Can't find required diff-so-fancy packed with 'DiffHighlight' module. $_";
 
     }
 artifacts:
