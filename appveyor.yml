@@ -46,11 +46,11 @@ test_script:
 
     # check existence of required diff-so-fancy script version
 
-    If (Select-String -Path "archive\bin\diff-so-fancy" -Pattern "\`$VERSION\s+=\s+""$($DIFF_SO_FANCY_VERSION)""")
+    If (Select-String -Path "archive\bin\diff-so-fancy" -Pattern "\`$VERSION\s+=\s+""$($env:DIFF_SO_FANCY_VERSION)""")
 
     {
 
-        Write-Host "Found required diff-so-fancy version $($DIFF_SO_FANCY_VERSION).";
+        Write-Host "Found required diff-so-fancy version $($env:DIFF_SO_FANCY_VERSION).";
 
     }
 
@@ -58,7 +58,7 @@ test_script:
 
     {
 
-        Throw "Can't find required diff-so-fancy version $($DIFF_SO_FANCY_VERSION). $_";
+        Throw "Can't find required diff-so-fancy version $($env:DIFF_SO_FANCY_VERSION). $_";
 
     }
 artifacts:
