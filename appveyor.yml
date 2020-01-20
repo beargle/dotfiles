@@ -1,4 +1,6 @@
 version: 1.7.0-{build}
+environment:
+    DIFF_SO_FANCY_VERSION: 1.2.6
 install:
 - cmd: git submodule update -q --init
 build_script:
@@ -15,7 +17,7 @@ build_script:
 
     # script for colorizing diff output in Git Bash
 
-    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy" -OutFile "archive\bin\diff-so-fancy";
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/v${env:DIFF_SO_FANCY_VERSION}/diff-so-fancy" -OutFile "archive\bin\diff-so-fancy";
 test_script:
 - ps: >-
     # check existence of required directories for zip artifact creation
@@ -39,6 +41,24 @@ test_script:
             Throw "Can't find required '$($RequiredPath)' path for artifact creation. $_";
 
         }
+
+    }
+
+    # check existence of required diff-so-fancy script version
+
+    If (Select-String -Path "archive\bin\diff-so-fancy" -Pattern "\`$VERSION\s+=\s+""$($DIFF_SO_FANCY_VERSION)""")
+
+    {
+
+        Write-Host "Found required diff-so-fancy version $($DIFF_SO_FANCY_VERSION).";
+
+    }
+
+    Else
+
+    {
+
+        Throw "Can't find required diff-so-fancy version $($DIFF_SO_FANCY_VERSION). $_";
 
     }
 artifacts:
