@@ -1,6 +1,6 @@
 version: 1.7.0-{build}
 environment:
-    DIFF_SO_FANCY_VERSION: 1.2.7
+    DIFF_SO_FANCY_VERSION: 1.2.6
 install:
 - cmd: git submodule update -q --init
 build_script:
