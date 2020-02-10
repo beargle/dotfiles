@@ -81,3 +81,6 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd matchit
 endif
+
+" Add syntax highlighting for Jenkins pipeline files
+au BufNewFile,BufRead Jenkinsfile setf groovy
