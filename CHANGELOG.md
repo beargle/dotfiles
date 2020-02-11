@@ -1,5 +1,16 @@
 # Next version (Unreleased)
 
+## Added
+
+- This changelog ([#11])
+
+## Changed
+
+- CI to build from all branches ([#10])
+
+[#10]: https://github.com/beargle/dotfiles/pull/10
+[#11]: https://github.com/beargle/dotfiles/pull/11
+
 # [1.6.0] (April 9, 2019)
 
 ## Added
