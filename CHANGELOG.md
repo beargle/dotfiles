@@ -3,6 +3,7 @@
 ## Added
 
 - This changelog ([#11])
+- `noexpandtab` to `.vimrc` for makefiles ([#12])
 
 ## Changed
 
@@ -10,6 +11,7 @@
 
 [#10]: https://github.com/beargle/dotfiles/pull/10
 [#11]: https://github.com/beargle/dotfiles/pull/11
+[#12]: https://github.com/beargle/dotfiles/pull/12
 
 # [1.6.0] (April 9, 2019)
 

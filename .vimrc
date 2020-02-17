@@ -81,3 +81,6 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd matchit
 endif
+
+" Prevent tab expansion for makefiles
+autocmd FileType make setlocal noexpandtab
