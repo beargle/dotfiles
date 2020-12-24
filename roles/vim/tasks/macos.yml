@@ -1,0 +1,4 @@
+- name: Install vim using homebrew package
+  community.general.homebrew:
+    name: vim
+    state: present

@@ -1,0 +1,42 @@
+- import_tasks: macos.yml
+  when: ansible_os_family == "Darwin"
+- import_tasks: windows.yml
+  when: ansible_os_family == "Windows"
+
+- name: Setup .vimrc configuration file
+  copy:
+    src: "{{ role_path }}/files/.vimrc"
+    dest: ~/.vimrc
+    mode: 0644
+
+- name: Setup vimfiles and directories for plugin management using pathogen
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop:
+    - ~/.vim
+    - ~/.vim/autoload
+    - ~/.vim/bundle
+
+- name: Setup pathogen for plugin management
+  get_url:
+    url: https://tpo.pe/pathogen.vim
+    dest: ~/.vim/autoload/pathogen.vim
+    mode: 0644
+
+- name: Install vim plugins
+  git:
+    repo: "{{ item.repo }}"
+    version: "{{ item.version }}"
+    dest: "~/.vim/bundle/{{ item.name }}"
+    depth: 1
+  loop:
+    - { name: 'vim-airline', repo: 'git@github.com:vim-airline/vim-airline.git', version: 'v0.11' }
+    - { name: 'vim-airline-themes', repo: 'git@github.com:vim-airline/vim-airline-themes.git', version: 'master' }
+    - { name: 'vim-colors-solarized', repo: 'git@github.com:altercation/vim-colors-solarized.git', version: 'master' }
+    - { name: 'vim-fugitive', repo: 'git@github.com:tpope/vim-fugitive.git', version: 'v3.2' }
+    - { name: 'vim-ps1', repo: 'git@github.com:PProvost/vim-ps1.git', version: 'v2.9' }
+    - { name: 'vim-sensible', repo: 'git@github.com:tpope/vim-sensible.git', version: 'v1.2' }
+    - { name: 'ansible-vim', repo: 'git@github.com:pearofducks/ansible-vim.git', version: '3.0' }
+

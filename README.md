@@ -1,51 +1,36 @@
 # dotfiles
 
-To help manage development environment configurations on Linux, macOS, and Windows. Package-specific customizations are outlined below.
+To manage workstation configuration for Linux, macOS, and Windows using Ansible.
 
-## Git
+## Requirements
 
-### .gitconfig
+The following packages should be available locally before using this project for workstation configuration.
 
-- Set `useConfigOnly` to true in support of multiple identity management
-- Set [gvim] as default editor and difftool
-- [diff-so-fancy] for colorized, highlighted, readable diffs
-- Checkout `cr/lf`, commit `lf` for Windows compatibility
-- Push empty directory as delete for `git svn` integration
-- Only allow [fast-forward merge] by default, override if needed with `merge --no-ff`
+- Ansible (if Windows, assume run from a distribution in the Windows Subsystem for Linux)
+- GNU Make
 
+## Usage
 
-### .gitignore
+Run playbook to configure workstation.
 
-Common [build, debug, and temporary files] from Visual Studio projects or Windows system files.
+```
+make install
+```
 
+Run playbook to configure workstation for a specific role, e.g. `vim`.
 
-## Vim
+```
+make install-vim
+```
 
-- Load [pathogen] plugin manager
-- Insert spaces (4) instead of tabs
-- Show line numbers
-- Visible tabs (`>---`) and trailing spaces (`-`)
-- Show text exists to left (`<`) and right (`>`) of screen when word wrap off
-- Consolas font in [gvim]
+Run checks and playbook dry-run, to show what changes _would be_ made to configure workstation.
 
-### Plugins
+```
+make test
+```
 
-- Common defaults with [vim-sensible]
-- Add contextual statusline info with [vim-airline]
-- Set [solarized] colorscheme in statusline with [vim-airline-themes]
-- Set [solarized] colorscheme for files (with light/dark background toggle) with [vim-colors-solarized]
-- PowerShell syntax coloring, indenting, and folding with [vim-ps1]
-- Git wrapper with [vim-fugitive]
+Run `ansible-lint` for a lightweight playbook check, useful during iterative development
 
-[gvim]: http://www.vim.org
-[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy
-[build, debug, and temporary files]: https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
-[pathogen]: https://github.com/tpope/vim-pathogen
-[vim-sensible]: https://github.com/tpope/vim-sensible
-[vim-airline]: https://github.com/vim-airline/vim-airline
-[solarized]: http://ethanschoonover.com/solarized
-[vim-airline-themes]: https://github.com/vim-airline/vim-airline-themes
-[vim-colors-solarized]: https://github.com/altercation/vim-colors-solarized
-[vim-ps1]: https://github.com/PProvost/vim-ps1
-[fast-forward merge]: https://git-scm.com/docs/git-config#git-config-mergeff
-[vim-fugitive]: https://github.com/tpope/vim-fugitive
+```
+make
+```

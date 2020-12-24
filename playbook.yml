@@ -1,0 +1,6 @@
+- name: Setup local workstation
+  hosts: workstation
+  roles:
+    - role: vim
+      tags:
+        - vim

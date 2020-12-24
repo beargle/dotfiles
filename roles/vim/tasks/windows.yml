@@ -1,0 +1,4 @@
+- name: Install vim using scoop package
+  community.windows.win_scoop:
+    name: vim
+    state: present
