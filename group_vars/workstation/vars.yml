@@ -1,1 +1,4 @@
 ansible_connection: local
+git_user_name: "{{ vault_git_user_name }}"
+git_user_email: "{{ vault_git_user_email }}"
+git_user_signingkey: "{{ vault_git_user_signingkey }}"

@@ -1,0 +1,32 @@
+[user]
+    useConfigOnly = true
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+    autocrlf = true
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[diff]
+    tool = vimdiff
+    guitool = gvimdiff
+    compactionHeuristic = true
+[difftool "vimdiff"]
+    cmd = vim -d $LOCAL $REMOTE
+[difftool "gvimdiff"]
+    cmd = gvim -d $LOCAL $REMOTE
+[difftool]
+    prompt = false
+[log]
+    date = iso-strict-local
+[merge]
+    # force fast-forward merge by default to prevent
+    # accidental merge commits. if merge commit is
+    # required, override this default with --no-ff
+    ff = only
+    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = vim -d $LOCAL $MERGED $REMOTE
+[color]
+    ui = auto
+[svn]
+    # push empty directory removals back to svn as directory deletes
+    rmdir = true

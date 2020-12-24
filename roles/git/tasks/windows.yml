@@ -1,0 +1,5 @@
+- name: Setup mintty configuration file
+  copy:
+    src: "{{ role_path }}/files/.minttyrc"
+    dest: "~/.minttyrc"
+    mode: 0644

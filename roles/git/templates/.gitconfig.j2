@@ -1,14 +1,19 @@
 [user]
     useConfigOnly = true
+    name = {{ git_user_name }}
+    email = {{ git_user_email }}
+    signingkey = {{ git_user_signingkey }}
 [core]
-    editor = gvim
+    editor = vim
     excludesfile = ~/.gitignore
     autocrlf = true
     pager = diff-so-fancy | less --tabs=4 -RFX
 [diff]
-    tool = gvimdiff
+    tool = vimdiff
     guitool = gvimdiff
     compactionHeuristic = true
+[difftool "vimdiff"]
+    cmd = vim -d $LOCAL $REMOTE
 [difftool "gvimdiff"]
     cmd = gvim -d $LOCAL $REMOTE
 [difftool]
@@ -20,9 +25,9 @@
     # accidental merge commits. if merge commit is
     # required, override this default with --no-ff
     ff = only
-    tool = gvimdiff
-[mergetool "gvimdiff"]
-    cmd = gvim -d $LOCAL $MERGED $REMOTE
+    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = vim -d $LOCAL $MERGED $REMOTE
 [color]
     ui = auto
 [svn]

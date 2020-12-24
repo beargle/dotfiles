@@ -1,0 +1,17 @@
+- import_tasks: macos.yml
+  when: ansible_os_family == "Darwin"
+
+- import_tasks: windows.yml
+  when: ansible_os_family == "Windows"
+
+- name: Setup .gitconfig configuration file from template
+  template:
+    src: "{{ role_path }}/templates/.gitconfig.j2"
+    dest: "~/.gitconfig"
+    mode: 0644
+
+- name: Setup .gitignore configuration file
+  copy:
+    src: "{{ role_path }}/files/.gitignore"
+    dest: "~/.gitignore"
+    mode: 0644
