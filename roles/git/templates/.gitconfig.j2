@@ -12,10 +12,6 @@
     tool = vimdiff
     guitool = gvimdiff
     compactionHeuristic = true
-[difftool "vimdiff"]
-    cmd = vim -d $LOCAL $REMOTE
-[difftool "gvimdiff"]
-    cmd = gvim -d $LOCAL $REMOTE
 [difftool]
     prompt = false
 [log]
@@ -26,8 +22,7 @@
     # required, override this default with --no-ff
     ff = only
     tool = vimdiff
-[mergetool "vimdiff"]
-    cmd = vim -d $LOCAL $MERGED $REMOTE
+    guitool = gvimdiff
 [color]
     ui = auto
 [svn]
