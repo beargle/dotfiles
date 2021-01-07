@@ -1,6 +1,9 @@
 - name: Setup local workstation
   hosts: workstation
   roles:
+    - role: bash
+      tags:
+        - bash
     - role: git
       tags:
         - git

@@ -1,0 +1,13 @@
+# Configure sh and bash shells. Configurations are generally compatible, so
+# maintain all configurations (regardless of platform) in one place.
+- name: Setup sh configuration file
+  copy:
+    src: "{{ role_path }}/files/.profile"
+    dest: "~/.profile"
+    mode: 0644
+
+- name: Setup bash configuration file
+  copy:
+    src: "{{ role_path }}/files/.bashrc"
+    dest: "~/.bashrc"
+    mode: 0644

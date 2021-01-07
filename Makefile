@@ -16,6 +16,10 @@ lint:
 install:
 	ansible-playbook --inventory-file $(inventory) --ask-vault-pass $(playbook)
 
+.PHONY: install-bash
+install-bash:
+	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags bash $(playbook)
+
 .PHONY: install-git
 install-git:
 	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags git $(playbook)
