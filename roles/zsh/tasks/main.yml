@@ -1,0 +1,21 @@
+- import_tasks: macos.yml
+  when: ansible_os_family == "Darwin"
+
+# check .oh-my-zsh directory existence as indicator of install status
+- name: Check if oh-my-zsh already installed
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_zsh_directory
+
+# install oh-my-zsh if not installed
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  when: not oh_my_zsh_directory.stat.exists
+
+# zsh configuration references home directory, which is different by
+# platform/user so generate from template.
+- name: Setup zsh startup from template
+  template:
+    src: "{{ role_path }}/templates/.zshrc.j2"
+    dest: "~/.zshrc"
+    mode: 0644

@@ -24,6 +24,10 @@ install-git:
 install-vim:
 	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags vim $(playbook)
 
+.PHONY: install-zsh
+install-zsh:
+	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags zsh $(playbook)
+
 .PHONY: test
 test: lint check-diff
 

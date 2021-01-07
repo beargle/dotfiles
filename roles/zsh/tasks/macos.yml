@@ -1,0 +1,4 @@
+- name: Install zsh using homebrew package
+  community.general.homebrew:
+    name: zsh
+    state: present

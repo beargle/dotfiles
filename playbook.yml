@@ -7,3 +7,6 @@
     - role: vim
       tags:
         - vim
+    - role: zsh
+      tags:
+        - zsh
