@@ -1,0 +1,4 @@
+- name: Install SSMS using scoop package
+  community.windows.win_scoop:
+    name: sql-server-management-studio-np
+    state: present

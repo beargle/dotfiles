@@ -24,6 +24,10 @@ install-bash:
 install-git:
 	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags git $(playbook)
 
+.PHONY: install-ssms
+install-ssms:
+	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags ssms $(playbook)
+
 .PHONY: install-vim
 install-vim:
 	ansible-playbook --inventory-file $(inventory) --ask-vault-pass --tags vim $(playbook)

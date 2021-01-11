@@ -1,2 +1,5 @@
 # Set default behavior to automatically normalize line endings
 * text=auto
+
+# SQL Prompt settings
+roles/ssms/files/sqlprompt.settings binary
